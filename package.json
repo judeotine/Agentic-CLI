@@ -1,6 +1,6 @@
 {
   "name": "@judeotine/agentic-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Agentic CLI - Most advanced AI-powered development CLI combining Claude Code's agent system with security scanning, web search, test generation, session management, and workflow automation. 60+ commands, 9+ specialized agents, 5+ production plugins.",
   "main": "dist/index.js",
   "bin": {
@@ -81,4 +81,3 @@
     "LICENSE"
   ]
 }
-
