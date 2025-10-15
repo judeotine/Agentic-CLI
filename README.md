@@ -1,8 +1,11 @@
 # Agentic CLI
 
+[![npm version](https://img.shields.io/npm/v/@judeotine/agentic-cli.svg)](https://www.npmjs.com/package/@judeotine/agentic-cli)
+[![npm downloads](https://img.shields.io/npm/dw/@judeotine/agentic-cli.svg)](https://www.npmjs.com/package/@judeotine/agentic-cli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 An advanced AI-powered CLI tool combining the best of Claude Code with cutting-edge features: multi-agent orchestration, security scanning, web search integration, automated testing, codebase indexing, and intelligent workflow automation.
 
-**Repository**: https://github.com/judeotine/Agentic-CLI.git
 
 ## Features
 
@@ -41,6 +44,18 @@ An advanced AI-powered CLI tool combining the best of Claude Code with cutting-e
 - **code-simplifier**: Code clarity and refactoring
 
 ## Installation
+
+### Quick Install (Recommended)
+
+```bash
+# Install from npm
+npm install -g @judeotine/agentic-cli
+
+# Initialize configuration
+agentic init
+```
+
+### Development Install
 
 ```bash
 # Clone the repository
