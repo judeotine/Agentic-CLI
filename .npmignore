@@ -3,6 +3,7 @@ coverage/
 scripts/
 examples/
 claude-code/
+src/
 *.test.ts
 *.spec.ts
 .env

@@ -72,6 +72,13 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "files": [
+    "dist/**/*",
+    "config/**/*",
+    "plugins/**/*",
+    "README.md",
+    "LICENSE"
+  ]
 }
 

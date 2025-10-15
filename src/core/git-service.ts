@@ -7,7 +7,12 @@ export class GitService {
 
   constructor(workingDir: string = process.cwd()) {
     this.workingDir = workingDir;
-    this.git = simpleGit(workingDir);
+    try {
+      this.git = simpleGit(workingDir);
+    } catch (error) {
+      // If simple-git fails, create a mock git instance
+      this.git = simpleGit();
+    }
   }
 
   async isRepository(): Promise<boolean> {

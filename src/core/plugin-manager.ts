@@ -34,26 +34,38 @@ export class PluginManager {
   }
 
   async loadPlugin(pluginPath: string): Promise<void> {
-    const manifestPath = path.join(pluginPath, 'manifest.json');
-    const manifestContent = await fs.readFile(manifestPath, 'utf-8');
-    const manifest: PluginManifest = PluginManifestSchema.parse(JSON.parse(manifestContent));
+    try {
+      const manifestPath = path.join(pluginPath, 'manifest.json');
+      const manifestContent = await fs.readFile(manifestPath, 'utf-8');
+      const manifest: PluginManifest = PluginManifestSchema.parse(JSON.parse(manifestContent));
 
-    const mainPath = path.join(pluginPath, manifest.main);
-    const pluginModule = await import(mainPath);
-    const plugin: Plugin = pluginModule.default || pluginModule;
+      const mainPath = path.join(pluginPath, manifest.main);
+      
+      // Try to load the plugin, but handle missing files gracefully
+      try {
+        const pluginModule = await import(mainPath);
+        const plugin: Plugin = pluginModule.default || pluginModule;
 
-    plugin.manifest = manifest;
+        plugin.manifest = manifest;
 
-    if (plugin.initialize) {
-      await plugin.initialize(this.context);
-    }
+        if (plugin.initialize) {
+          await plugin.initialize(this.context);
+        }
 
-    this.plugins.set(manifest.name, plugin);
+        this.plugins.set(manifest.name, plugin);
 
-    if (plugin.hooks) {
-      for (const [hookName, hook] of plugin.hooks.entries()) {
-        this.registerHook(hookName, manifest.name, hook.execute.bind(hook));
+        if (plugin.hooks) {
+          for (const [hookName, hook] of plugin.hooks.entries()) {
+            this.registerHook(hookName, manifest.name, hook.execute.bind(hook));
+          }
+        }
+      } catch (importError) {
+        console.warn(`Failed to load plugin ${manifest.name}: ${importError.message}`);
+        // Continue without this plugin
       }
+    } catch (error) {
+      console.warn(`Failed to load plugin from ${pluginPath}: ${error.message}`);
+      // Continue without this plugin
     }
   }
 
