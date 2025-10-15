@@ -1,0 +1,25 @@
+{
+  "name": "example-plugin",
+  "version": "1.0.0",
+  "description": "Example plugin demonstrating the plugin architecture",
+  "author": "CLI Agent Team",
+  "main": "index.js",
+  "commands": [
+    {
+      "name": "hello",
+      "description": "Say hello from the plugin",
+      "aliases": ["hi"]
+    }
+  ],
+  "hooks": [
+    "pre-edit",
+    "post-edit"
+  ],
+  "permissions": {
+    "fileSystem": true,
+    "git": false,
+    "network": false
+  },
+  "dependencies": {}
+}
+

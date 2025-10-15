@@ -1,0 +1,35 @@
+{
+  "name": "commit-automation",
+  "version": "1.0.0",
+  "description": "Automated git workflows for commits, pushes, and PR creation with intelligent message generation",
+  "author": "Agentic CLI Team",
+  "main": "index.js",
+  "commands": [
+    {
+      "name": "commit-push-pr",
+      "description": "Commit, push, and create PR in one command",
+      "aliases": ["cpp", "ship"]
+    },
+    {
+      "name": "smart-commit",
+      "description": "Commit with AI-generated message",
+      "aliases": ["sc"]
+    },
+    {
+      "name": "clean-gone",
+      "description": "Clean up local branches that are gone on remote",
+      "aliases": ["clean-branches"]
+    }
+  ],
+  "hooks": [
+    "pre-commit",
+    "post-commit"
+  ],
+  "permissions": {
+    "fileSystem": true,
+    "git": true,
+    "network": true
+  },
+  "dependencies": {}
+}
+

@@ -1,0 +1,31 @@
+{
+  "name": "feature-development",
+  "version": "1.0.0",
+  "description": "Guided feature development with codebase understanding and architecture focus - integrates code-architect, code-explorer, and code-reviewer agents",
+  "author": "Agentic CLI Team",
+  "main": "index.js",
+  "commands": [
+    {
+      "name": "feature-dev",
+      "description": "Guided feature development workflow",
+      "aliases": ["fd"]
+    }
+  ],
+  "hooks": [
+    "pre-edit",
+    "post-edit",
+    "pre-commit"
+  ],
+  "permissions": {
+    "fileSystem": true,
+    "git": true,
+    "network": true
+  },
+  "agents": [
+    "code-architect",
+    "code-explorer",
+    "code-reviewer"
+  ],
+  "dependencies": {}
+}
+

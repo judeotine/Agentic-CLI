@@ -1,0 +1,39 @@
+{
+  "name": "pr-review-toolkit",
+  "version": "1.0.0",
+  "description": "Comprehensive PR review toolkit with specialized agents for code quality, test coverage, error handling, type design, comments, and simplification",
+  "author": "Agentic CLI Team",
+  "main": "index.js",
+  "commands": [
+    {
+      "name": "review-pr",
+      "description": "Comprehensive pull request review",
+      "aliases": ["pr-review", "review"]
+    },
+    {
+      "name": "review-tests",
+      "description": "Review test coverage",
+      "aliases": ["test-review"]
+    },
+    {
+      "name": "review-security",
+      "description": "Review error handling and security",
+      "aliases": ["security-review"]
+    }
+  ],
+  "hooks": [],
+  "permissions": {
+    "fileSystem": true,
+    "git": true,
+    "network": true
+  },
+  "agents": [
+    "comment-analyzer",
+    "pr-test-analyzer",
+    "silent-failure-hunter",
+    "type-design-analyzer",
+    "code-simplifier"
+  ],
+  "dependencies": {}
+}
+

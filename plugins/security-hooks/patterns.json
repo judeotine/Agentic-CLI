@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "patterns": [
+    {
+      "id": "sql-injection",
+      "name": "SQL Injection",
+      "description": "Detects potential SQL injection vulnerabilities",
+      "severity": "critical",
+      "cwe": "CWE-89",
+      "patterns": [
+        "execute\\(",
+        "query\\(",
+        "SELECT .* FROM .* WHERE .* \\+"
+      ],
+      "message": "Potential SQL injection. Use parameterized queries or ORM.",
+      "fix": "Use prepared statements: db.query('SELECT * FROM users WHERE id = ?', [userId])"
+    },
+    {
+      "id": "command-injection",
+      "name": "Command Injection",
+      "severity": "critical",
+      "cwe": "CWE-78",
+      "patterns": [
+        "exec\\(",
+        "execSync\\(",
+        "system\\(",
+        "os\\.system"
+      ],
+      "message": "Potential command injection. Use execFile or validate inputs.",
+      "fix": "Use execFile: execFile('command', [arg1, arg2])"
+    },
+    {
+      "id": "hardcoded-secrets",
+      "name": "Hardcoded Secrets",
+      "severity": "critical",
+      "cwe": "CWE-798",
+      "patterns": [
+        "(password|api_key|secret|token)\\s*=\\s*['\"][^'\"]+['\"]"
+      ],
+      "message": "Hardcoded credentials detected. Use environment variables.",
+      "fix": "Use process.env: const apiKey = process.env.API_KEY"
+    },
+    {
+      "id": "xss",
+      "name": "Cross-Site Scripting (XSS)",
+      "severity": "high",
+      "cwe": "CWE-79",
+      "patterns": [
+        "dangerouslySetInnerHTML",
+        "innerHTML\\s*=",
+        "document\\.write\\("
+      ],
+      "message": "Potential XSS vulnerability. Sanitize user input.",
+      "fix": "Use textContent or DOMPurify.sanitize(userInput)"
+    },
+    {
+      "id": "eval-injection",
+      "name": "Code Injection via eval",
+      "severity": "high",
+      "cwe": "CWE-95",
+      "patterns": [
+        "eval\\(",
+        "new Function\\("
+      ],
+      "message": "Code injection risk. Avoid eval() and new Function().",
+      "fix": "Use JSON.parse() for data or refactor to avoid dynamic code"
+    },
+    {
+      "id": "path-traversal",
+      "name": "Path Traversal",
+      "severity": "high",
+      "cwe": "CWE-22",
+      "patterns": [
+        "\\.\\./",
+        "\\.\\.\\\\"
+      ],
+      "message": "Path traversal risk. Validate and normalize paths.",
+      "fix": "Use path.resolve() and verify path stays in allowed directory"
+    },
+    {
+      "id": "insecure-crypto",
+      "name": "Weak Cryptography",
+      "severity": "medium",
+      "cwe": "CWE-327",
+      "patterns": [
+        "md5\\(",
+        "sha1\\(",
+        "DES",
+        "RC4"
+      ],
+      "message": "Weak cryptographic algorithm. Use SHA-256 or better.",
+      "fix": "Use crypto.createHash('sha256')"
+    },
+    {
+      "id": "unsafe-deserialization",
+      "name": "Unsafe Deserialization",
+      "severity": "critical",
+      "cwe": "CWE-502",
+      "patterns": [
+        "pickle\\.loads",
+        "unserialize\\(",
+        "yaml\\.load\\("
+      ],
+      "message": "Unsafe deserialization can lead to RCE. Use safe alternatives.",
+      "fix": "Use JSON.parse() or yaml.safe_load()"
+    }
+  ]
+}
+

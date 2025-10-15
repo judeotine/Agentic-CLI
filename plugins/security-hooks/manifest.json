@@ -1,0 +1,24 @@
+{
+  "name": "security-hooks",
+  "version": "1.0.0",
+  "description": "Security validation hooks that check for common vulnerabilities before code changes",
+  "author": "Agentic CLI Team",
+  "main": "index.js",
+  "commands": [],
+  "hooks": [
+    "pre-edit",
+    "pre-commit"
+  ],
+  "permissions": {
+    "fileSystem": true,
+    "git": false,
+    "network": false
+  },
+  "securityPatterns": {
+    "enabled": true,
+    "blockOnCritical": false,
+    "warnOnHigh": true
+  },
+  "dependencies": {}
+}
+
