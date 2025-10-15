@@ -1,0 +1,41 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+
+# Scripts
+*.sh text eol=lf
+
+# Config files
+.eslintrc.* text eol=lf
+.prettierrc text eol=lf
+tsconfig.json text eol=lf
+
+# Documentation
+*.md text diff=markdown
+
+# Git
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Exclude from exports
+.git* export-ignore
+tests/ export-ignore
+coverage/ export-ignore
+*.test.ts export-ignore
+*.spec.ts export-ignore
+
