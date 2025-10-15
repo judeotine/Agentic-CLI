@@ -1,0 +1,97 @@
+# Agentic CLI Theme Configuration
+
+# Default theme - Bright and modern
+default:
+  name: agentic-default
+  colors:
+    primary: '#00D9FF'      # Bright cyan - main brand
+    secondary: '#9D4EDD'    # Purple - secondary brand
+    success: '#06FFA5'      # Bright green
+    warning: '#FFB627'      # Golden yellow
+    error: '#FF006E'        # Hot pink
+    info: '#4EA8DE'         # Sky blue
+    accent: '#FB5607'       # Orange
+    muted: '#6C757D'        # Gray
+    highlight: '#FFBE0B'    # Yellow
+  ui:
+    background: '#0F0F1E'   # Dark blue-black
+    surface: '#1A1A2E'      # Slightly lighter
+    border: '#00D9FF'       # Primary color
+    text: '#FFFFFF'         # White
+
+# Dark theme - Muted and professional
+dark:
+  name: agentic-dark
+  colors:
+    primary: '#00B4D8'
+    secondary: '#7209B7'
+    success: '#06D6A0'
+    warning: '#F77F00'
+    error: '#D62828'
+    info: '#457B9D'
+    accent: '#E63946'
+    muted: '#495057'
+    highlight: '#F4A261'
+  ui:
+    background: '#0A0A0F'
+    surface: '#14141F'
+    border: '#00B4D8'
+    text: '#E0E0E0'
+
+# Light theme - High contrast
+light:
+  name: agentic-light
+  colors:
+    primary: '#0077B6'
+    secondary: '#5A189A'
+    success: '#2D6A4F'
+    warning: '#E85D04'
+    error: '#9D0208'
+    info: '#1D3557'
+    accent: '#DC2F02'
+    muted: '#495057'
+    highlight: '#D4A373'
+  ui:
+    background: '#FFFFFF'
+    surface: '#F8F9FA'
+    border: '#0077B6'
+    text: '#212529'
+
+# Cyberpunk theme - High energy
+cyberpunk:
+  name: agentic-cyberpunk
+  colors:
+    primary: '#00FFF9'      # Neon cyan
+    secondary: '#FF006E'    # Neon pink
+    success: '#00FF41'      # Matrix green
+    warning: '#FFD60A'      # Electric yellow
+    error: '#FF0054'        # Neon red
+    info: '#B967FF'         # Neon purple
+    accent: '#FD3A69'       # Hot pink
+    muted: '#4A5568'
+    highlight: '#05FFA1'
+  ui:
+    background: '#0D0221'   # Deep purple-black
+    surface: '#1A0B2E'
+    border: '#00FFF9'
+    text: '#E0FBFC'
+
+# Terminal classic - Retro vibes
+classic:
+  name: agentic-classic
+  colors:
+    primary: '#00FF00'      # Classic green
+    secondary: '#0000FF'    # Classic blue
+    success: '#00FF00'      # Green
+    warning: '#FFFF00'      # Yellow
+    error: '#FF0000'        # Red
+    info: '#00FFFF'         # Cyan
+    accent: '#FF00FF'       # Magenta
+    muted: '#808080'        # Gray
+    highlight: '#FFFFFF'    # White
+  ui:
+    background: '#000000'
+    surface: '#1A1A1A'
+    border: '#00FF00'
+    text: '#00FF00'
+

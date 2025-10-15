@@ -1,0 +1,88 @@
+version: '1.0.0'
+
+aiModels:
+  gpt-4:
+    provider: openai
+    model: gpt-4-turbo-preview
+    apiKey: ${OPENAI_API_KEY}
+    temperature: 0.7
+    maxTokens: 4096
+    timeout: 30000
+  
+  claude-3:
+    provider: anthropic
+    model: claude-3-sonnet-20240229
+    apiKey: ${ANTHROPIC_API_KEY}
+    temperature: 0.7
+    maxTokens: 4096
+    timeout: 30000
+  
+  local-llm:
+    provider: local
+    model: llama-3-70b
+    endpoint: http://localhost:11434/v1
+    temperature: 0.7
+    timeout: 60000
+
+defaultModel: gpt-4
+
+permissions:
+  fileSystem:
+    read: true
+    write: false
+    delete: false
+    allowedPaths:
+      - ./src
+      - ./tests
+  
+  git:
+    read: true
+    commit: false
+    push: false
+    createPR: false
+  
+  network:
+    enabled: true
+    allowedDomains:
+      - api.openai.com
+      - api.anthropic.com
+
+plugins:
+  enabled: true
+  directory: ./plugins
+  whitelist:
+    - example-plugin
+    - code-formatter
+
+agents:
+  maxConcurrent: 3
+  timeout: 300000
+  retryAttempts: 3
+
+ui:
+  mode: interactive
+  colors: true
+  progressBar: true
+  theme: default  # Options: default, dark, light, cyberpunk, classic
+  showBanner: true
+  animations: false
+  animationSpeed: 5  # 1-10, where 1 is slowest, 10 is fastest
+  typingSpeed: 30    # ms per character for typing animations
+  bannerAnimation: false
+  progressAnimation: false
+  agentStatusAnimation: false
+
+git:
+  autoCommit: false
+  commitMessageTemplate: null
+  autoPush: false
+
+workspace:
+  root: .
+  ignorePaths:
+    - node_modules
+    - dist
+    - .git
+    - coverage
+    - '*.log'
+
