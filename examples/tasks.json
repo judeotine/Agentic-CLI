@@ -1,0 +1,58 @@
+[
+  {
+    "id": "analyze-1",
+    "type": "analyze",
+    "description": "Analyze code quality in src/",
+    "input": {
+      "path": "src/",
+      "metrics": ["complexity", "maintainability", "coverage"]
+    },
+    "priority": 1,
+    "retryOnFailure": true
+  },
+  {
+    "id": "search-1",
+    "type": "search",
+    "description": "Find all TODO comments",
+    "input": {
+      "pattern": "TODO|FIXME",
+      "files": "src/**/*.ts"
+    },
+    "priority": 1
+  },
+  {
+    "id": "refactor-1",
+    "type": "code-edit",
+    "description": "Refactor based on analysis results",
+    "input": {
+      "files": ["src/utils/"],
+      "prompt": "Refactor to reduce complexity based on analysis"
+    },
+    "priority": 2,
+    "dependencies": ["analyze-1"],
+    "retryOnFailure": false
+  },
+  {
+    "id": "test-1",
+    "type": "code-edit",
+    "description": "Add unit tests for refactored code",
+    "input": {
+      "files": ["tests/utils/"],
+      "prompt": "Add comprehensive unit tests"
+    },
+    "priority": 3,
+    "dependencies": ["refactor-1"]
+  },
+  {
+    "id": "git-1",
+    "type": "git",
+    "description": "Commit all changes",
+    "input": {
+      "message": "refactor: improve code quality based on analysis",
+      "files": ["src/", "tests/"]
+    },
+    "priority": 4,
+    "dependencies": ["test-1"]
+  }
+]
+

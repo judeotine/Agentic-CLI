@@ -1,0 +1,31 @@
+{
+  "name": "my-custom-plugin",
+  "version": "1.0.0",
+  "description": "Template for creating custom plugins",
+  "author": "Your Name",
+  "main": "index.js",
+  "commands": [
+    {
+      "name": "my-command",
+      "description": "Custom command description",
+      "aliases": ["mc"]
+    }
+  ],
+  "hooks": [
+    "pre-command",
+    "post-command",
+    "pre-edit",
+    "post-edit",
+    "pre-commit",
+    "post-commit"
+  ],
+  "permissions": {
+    "fileSystem": true,
+    "git": false,
+    "network": false
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
+
