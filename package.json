@@ -1,0 +1,77 @@
+{
+  "name": "@judeotine/agentic-cli",
+  "version": "0.1.0",
+  "description": "Agentic CLI - Most advanced AI-powered development CLI combining Claude Code's agent system with security scanning, web search, test generation, session management, and workflow automation. 60+ commands, 9+ specialized agents, 5+ production plugins.",
+  "main": "dist/index.js",
+  "bin": {
+    "agentic": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "agentic-cli",
+    "ai-cli",
+    "claude-code",
+    "multi-agent",
+    "code-assistant",
+    "security-scanner",
+    "test-generation",
+    "code-review",
+    "pr-review",
+    "git-automation",
+    "web-search",
+    "codebase-indexing",
+    "workflow-automation",
+    "session-management",
+    "feature-development"
+  ],
+  "author": "Judeotine",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "inquirer": "^8.2.6",
+    "yaml": "^2.3.4",
+    "ajv": "^8.12.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2",
+    "simple-git": "^3.21.0",
+    "glob": "^10.3.10",
+    "chokidar": "^3.5.3",
+    "blessed": "^0.1.81",
+    "neo-blessed": "^0.2.0",
+    "p-queue": "^7.4.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/jest": "^29.5.11",
+    "@types/inquirer": "^8.2.10",
+    "@types/blessed": "^0.1.25",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
